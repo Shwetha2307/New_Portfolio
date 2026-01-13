@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shwetha | Portfolio</title>
+
+<style>
+/* ===== GLOBAL ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== PROFILE BANNER ===== */
+.profile-banner{
+  width:100%;
+  height:500px;
+  background:url("image.jpeg") center/cover no-repeat;
+  position:relative;
+}
+
+.banner-overlay{
+  width:100%;
+  height:100%;
+  background:rgba(10, 37, 64, 0.75); /* dark blue overlay */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.banner-content{
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+
+.banner-content h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.banner-content h3{
+  font-weight:400;
+  margin-bottom:15px;
+  color:#cfe3ff;
+}
+
+.banner-content p{
+  font-size:16px;
+}
+
+.banner-content a{
+  color:#6ec1ff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+
+body{
+  background:#f7f9fc;
+  color:#0a2540;
+  line-height:1.6;
+}
+
+section{
+  padding:70px 10%;
+}
+
+h2{
+  font-size:32px;
+  margin-bottom:30px;
+  text-align:center;
+}
+
+/* ===== HERO ===== */
+.hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.hero-text h1{
+  font-size:42px;
+}
+
+.hero-text span{
+  color:#1f5fff;
+}
+
+.hero-text p{
+  margin-top:15px;
+  font-size:18px;
+}
+
+.hero-buttons{
+  margin-top:25px;
+}
+
+.hero-buttons a{
+  text-decoration:none;
+  padding:12px 24px;
+  margin-right:15px;
+  border-radius:30px;
+  font-weight:600;
+}
+
+.btn-primary{
+  background:#1f5fff;
+  color:white;
+}
+
+.btn-outline{
+  border:2px solid #1f5fff;
+  color:#1f5fff;
+}
+
+.hero-img img{
+  width:260px;
+  border-radius:50%;
+  border:6px solid #1f5fff;
+}
+
+/* ===== ABOUT ===== */
+.about{
+  background:white;
+  border-radius:20px;
+}
+
+.about p{
+  max-width:800px;
+  margin:auto;
+  font-size:17px;
+  text-align:center;
+}
+
+/* ===== SKILLS ===== */
+.skills-box{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+}
+
+.skill{
+  background:white;
+  padding:12px 20px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  font-weight:600;
+}
+
+/* ===== PROJECTS ===== */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.project-card{
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.1);
+}
+
+.project-card h3{
+  margin-bottom:10px;
+}
+
+.project-card a{
+  text-decoration:none;
+  color:#1f5fff;
+  font-weight:600;
+}
+
+/* ===== EDUCATION & CERT ===== */
+.grid-two{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.box{
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ===== CONTACT ===== */
+.contact{
+  background:#0a2540;
+  color:white;
+  border-radius:20px;
+}
+
+.contact a{
+  color:#6ec1ff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:20px;
+  color:#555;
+}
+</style>
+</head>
+
+<!-- TOP BANNER -->
+<section class="profile-banner">
+  <div class="banner-overlay">
+    <div class="banner-content">
+      <h1>Shwetha</h1>
+      <h3>BTech CSE (AI & ML) | Aspiring Software Developer</h3>
+
+      <p>
+        📧 shwethasmrithi@gmail.com &nbsp; | &nbsp;
+        🔗 linkedin.com/in/shwetha-sujithkumar-97158a381/ &nbsp; | &nbsp;
+        💻 github.com/Shwetha2307
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Hey, I'm <span>Shwetha</span> 👋</h1>
+    <p>First-Year BTech Computer Science (AI & ML) Student<br>
+    Aspiring Software & Web Developer</p>
+
+    <div class="hero-buttons">
+      <a href="https://drive.google.com/file/d/1llzbDebQZa3_SApcbhuqSFAaUccO-bFK/view?usp=sharing" class="btn-primary">View Resume</a>
+      <a href="https://github.com/Shwetha2307" class="btn-outline">GitHub</a>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="img.jpeg" alt="Shwetha">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <h2>About Me</h2>
+  <p>
+    I am a first-year Computer Science (AI & ML) student passionate about
+    learning web development and software technologies. I enjoy building
+    simple, clean projects using HTML, CSS, JavaScript, and Python while
+    continuously improving my problem-solving skills.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <h2>Skills</h2>
+  <div class="skills-box">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">Python</div>
+    <div class="skill">C Programming</div>
+    <div class="skill">MIT App Inventor</div>
+    <div class="skill">Git & GitHub</div>
+    <div class="skill">Figma</div>
+    <div class="skill">Canva</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-card">
+      <h3>Online Registration Form</h3>
+      <p>HTML, CSS, JavaScript validation</p>
+      <a href="https://shwetha2307.github.io/Registration_Form/">Live Demo</a> | <a href="https://github.com/Shwetha2307/Registration_Form">GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Personal Portfolio</h3>
+      <p>Responsive portfolio website</p>
+      <a href="https://shwetha2307.github.io/Portfolio/">Live Demo</a> | <a href="https://github.com/Shwetha2307/Portfolio">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTIFICATIONS -->
+<section>
+  <h2>Education & Certifications</h2>
+  <div class="grid-two">
+    <div class="box">
+      <h3>Education</h3>
+      <p>BTech CSE (AI & ML) – First Year</p>
+      <p>12th – PCM CS (94.5%) </p>
+      <p>10th – 94.6% </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Get in Touch</h2>
+  <p>Email: shwethasmrithi@email.com</p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/shwetha-sujithkumar-97158a381/">LinkedIn</a></p>
+</section>
+
+<footer>
+  © 2026 Shwetha | Portfolio
+</footer>
+
+</body>
+</html>
