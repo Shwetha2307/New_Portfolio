@@ -63,6 +63,7 @@ body{
   background:#f7f9fc;
   color:#0a2540;
   line-height:1.6;
+  overflow-x:hidden;
 }
 
 section{
@@ -210,10 +211,62 @@ footer{
   padding:20px;
   color:#555;
 }
+  @media (max-width: 768px){
+
+  section{
+    padding:50px 6%;
+  }
+
+  .profile-banner{
+    height:300px;
+  }
+
+  .banner-content h1{
+    font-size:28px;
+  }
+
+  .banner-content h3{
+    font-size:14px;
+  }
+
+  .banner-content p{
+    font-size:13px;
+  }
+
+  .hero{
+    flex-direction:column-reverse;
+    text-align:center;
+  }
+
+  .hero-text h1{
+    font-size:28px;
+  }
+
+  .hero-text p{
+    font-size:15px;
+  }
+
+  .hero-buttons a{
+    margin:10px 0;
+    width:100%;
+  }
+
+  .hero-img img{
+    width:180px;
+  }
+
+  h2{
+    font-size:24px;
+  }
+
+  .about p{
+    font-size:15px;
+  }
+}
 </style>
 </head>
-
-<!-- TOP BANNER -->
+<body>
+  <!-- TOP BANNER -->
 <section class="profile-banner">
   <div class="banner-overlay">
     <div class="banner-content">
@@ -228,9 +281,6 @@ footer{
     </div>
   </div>
 </section>
-
-
-<body>
 
 <!-- HERO -->
 <section class="hero">
@@ -330,5 +380,6 @@ footer{
 
 </body>
 </html>
+
 
 
