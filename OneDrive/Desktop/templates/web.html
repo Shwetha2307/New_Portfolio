@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Controls Your Life</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      overflow-x: hidden;
+      color: white;
+      background: linear-gradient(270deg, #000, #0f2027, #2c5364);
+      background-size: 600% 600%;
+      animation: bgMove 10s ease infinite;
+    }
+
+    /* SCENE */
+    .scene {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* TEXT */
+    .text {
+      font-size: 2rem;
+      text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff;
+      line-height: 1.5;
+    }
+
+    /* BUTTONS */
+    .choice button {
+      display: block;
+      margin: 10px;
+      padding: 14px 25px;
+      border-radius: 30px;
+      border: 1px solid #00f5ff;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+    }
+
+    .choice button:hover {
+      background: #00f5ff;
+      color: black;
+      box-shadow: 0 0 20px #00f5ff;
+    }
+
+    /* BACKGROUND ANIMATION */
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* GLITCH */
+    body.glitch {
+      animation: glitch 0.2s;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(2px, -2px); }
+      50% { transform: translate(-2px, 2px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* SCROLL INDICATOR */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      font-size: 1rem;
+      opacity: 0.7;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div id="container">
+
+  <!-- Scene 1 -->
+  <section class="scene" data-music="audio/ai.mp3">
+    <h1 class="text">⚠️ AI has taken control of your life.</h1>
+    <div class="scroll-indicator">↓ AI is guiding you… scroll</div>
+  </section>
+
+  <!-- Scene 2 -->
+  <section class="scene" data-music="audio/ai.mp3">
+    <h1 class="text">For the next 24 hours… you have no control.</h1>
+  </section>
+
+  <!-- Scene 3 -->
+  <section class="scene" data-music="audio/ai.mp3">
+    <h1 class="text">Choose how AI controls you ↓</h1>
+  </section>
+
+  <!-- Scene 4 -->
+  <section class="scene choice" data-music="audio/ai.mp3">
+    <button onclick="goPath('lazy')">😴 Lazy Mode</button>
+    <button onclick="goPath('prod')">⚡ Productive Mode</button>
+    <button onclick="goPath('villain')">😈 Villain Mode</button>
+  </section>
+
+  <!-- Dynamic content -->
+  <section id="dynamic" class="scene"></section>
+
+</div>
+
+<audio id="bgMusic" loop></audio>
+<audio id="clickSound" src="audio/click.mp3"></audio>
+
+<script>
+const bgMusic = document.getElementById("bgMusic");
+const clickSound = document.getElementById("clickSound");
+const scenes = document.querySelectorAll(".scene");
+const dynamic = document.getElementById("dynamic");
+const scrollHint = document.querySelector(".scroll-indicator");
+
+bgMusic.volume = 0.4;
+
+// 🎧 CHANGE MUSIC ON SCROLL
+window.addEventListener("scroll", () => {
+
+  // Hide scroll hint after first scroll
+  if (scrollHint) scrollHint.style.display = "none";
+
+  scenes.forEach(scene => {
+    const rect = scene.getBoundingClientRect();
+    if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+      const music = scene.dataset.music;
+
+      if (music && !bgMusic.src.includes(music)) {
+        bgMusic.src = music;
+        bgMusic.play().catch(() => {});
+      }
+    }
+  });
+});
+
+// 🔥 AUTOPLAY FIX
+document.body.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play().catch(() => {});
+  }
+}, { once: true });
+
+// ✍️ FIXED TYPEWRITER (spacing issue solved)
+function typeText(text, element) {
+  element.innerHTML = "";
+  let i = 0;
+
+  let interval = setInterval(() => {
+    element.innerHTML += text.charAt(i);
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, 30);
+}
+
+// 🎮 PATHS
+function goPath(type) {
+  clickSound.play();
+
+  document.body.classList.add("glitch");
+  setTimeout(() => {
+    document.body.classList.remove("glitch");
+  }, 200);
+
+  let content = "";
+
+  if (type === "lazy") {
+    content = "AI chose comfort. You slept all day... 😴";
+    bgMusic.src = "audio/lazy.mp3";
+  }
+
+  if (type === "prod") {
+    content = "AI optimized you. You achieved EVERYTHING 🚀";
+    bgMusic.src = "audio/productive.mp3";
+  }
+
+  if (type === "villain") {
+    content = "AI unlocked chaos. You control everything now 😈";
+    bgMusic.src = "audio/dark.mp3";
+  }
+
+  bgMusic.play();
+
+  dynamic.innerHTML = "<h1 class='text'></h1>";
+  const textEl = dynamic.querySelector(".text");
+
+  typeText(content, textEl);
+
+  dynamic.scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
